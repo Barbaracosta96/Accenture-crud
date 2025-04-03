@@ -1,0 +1,67 @@
+<mat-card>
+  <mat-toolbar color="primary">
+    <span>{{ isEditMode ? 'Editar Empresa' : 'Nova Empresa' }}</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-icon-button aria-label="Voltar" (click)="onCancel()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </mat-toolbar>
+
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="empresa-form">
+
+      <!-- Campo Nome Fantasia -->
+      <mat-form-field class="full-width">
+        <mat-label>Nome Fantasia</mat-label>
+        <input matInput placeholder="Nome Fantasia da Empresa" formControlName="nomeFantasia" required>
+        <mat-error *ngIf="form.get('nomeFantasia')?.invalid">
+          {{ getErrorMessage('nomeFantasia') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo CNPJ -->
+      <mat-form-field class="full-width">
+        <mat-label>CNPJ</mat-label>
+        <input matInput placeholder="00.000.000/0000-00" formControlName="cnpj" required mask="00.000.000/0000-00">
+        <mat-error *ngIf="form.get('cnpj')?.invalid">
+          {{ getErrorMessage('cnpj') }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- Campo CEP -->
+      <mat-form-field class="full-width">
+        <mat-label>CEP</mat-label>
+        <input matInput placeholder="00000-000" formControlName="cep" required mask="00000-000">
+        <!-- Ícone de status da validação do CEP -->
+        <mat-icon matSuffix *ngIf="cepLoading">hourglass_empty</mat-icon> <!-- Ícone de loading -->
+        <mat-icon matSuffix *ngIf="!cepLoading && cepValid === true" color="primary">check_circle</mat-icon> <!-- Ícone de sucesso -->
+        <mat-icon matSuffix *ngIf="!cepLoading && cepValid === false" color="warn">error</mat-icon> <!-- Ícone de erro -->
+
+        <mat-error *ngIf="form.get('cep')?.invalid">
+          {{ getErrorMessage('cep') }}
+        </mat-error>
+         <mat-hint *ngIf="cepLoading">Validando CEP...</mat-hint>
+         <mat-hint *ngIf="!cepLoading && cepValid === true" class="cep-success">CEP válido!</mat-hint>
+         <mat-hint *ngIf="!cepLoading && cepValid === false" class="cep-error">CEP inválido ou não encontrado.</mat-hint>
+      </mat-form-field>
+
+      <!-- Indicador de Loading Geral -->
+      <div *ngIf="isLoading" class="loading-indicator">
+        <mat-progress-spinner mode="indeterminate" diameter="40"></mat-progress-spinner>
+        <p>Salvando...</p>
+      </div>
+
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" (click)="onSubmit()" [disabled]="isLoading || cepLoading || form.invalid || cepValid === false">
+      <mat-icon>{{ isEditMode ? 'save' : 'add' }}</mat-icon>
+      {{ isEditMode ? 'Atualizar' : 'Salvar' }}
+    </button>
+    <button mat-raised-button (click)="onCancel()" [disabled]="isLoading">
+       <mat-icon>cancel</mat-icon>
+      Cancelar
+    </button>
+  </mat-card-actions>
+</mat-card>

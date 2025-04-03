@@ -1,0 +1,62 @@
+/* Estilos gerais para o card e toolbar */
+mat-card {
+    max-width: 800px;
+    margin: 2em auto;
+    text-align: center;
+    padding: 0; /* Remover padding padrão do card para a toolbar encaixar */
+  }
+  
+  mat-toolbar {
+    border-radius: 4px 4px 0 0; /* Arredondar cantos superiores da toolbar */
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto; /* Empurra o botão para a direita */
+  }
+  
+  .content-container {
+      padding: 16px; /* Adiciona padding ao conteúdo interno */
+  }
+  
+  /* Estilos para o spinner de carregamento */
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    min-height: 200px; /* Para dar espaço ao spinner */
+  
+    p {
+      margin-top: 1em;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+  
+  /* Estilos para a tabela */
+  .mat-elevation-z8 {
+    width: 100%;
+    margin-top: 1em;
+  }
+  
+  .action-column {
+    flex: 0 0 125px; /* Largura fixa para coluna de ações */
+    text-align: center;
+  }
+  
+  .action-column-header {
+      flex: 0 0 125px;
+      text-align: center;
+  }
+  
+  th.mat-header-cell, td.mat-cell {
+      padding-left: 8px;
+      padding-right: 8px;
+  }
+  
+  /* Mensagem de "sem dados" */
+  .no-data-message {
+      padding: 2em;
+      color: rgba(0, 0, 0, 0.6);
+      font-style: italic;
+  }

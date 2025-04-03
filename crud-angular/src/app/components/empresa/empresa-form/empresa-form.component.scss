@@ -1,0 +1,83 @@
+mat-card {
+    max-width: 600px;
+    margin: 2em auto;
+    padding: 0; // Remover padding para toolbar encaixar
+  }
+  
+  mat-toolbar {
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+  
+  mat-card-content {
+    padding: 16px;
+  }
+  
+  .empresa-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-bottom: 10px; /* Espaçamento entre campos */
+  }
+  
+  /* Estilos para hints de CEP */
+  .cep-success {
+    color: #4CAF50; /* Verde */
+  }
+  
+  .cep-error {
+    color: #f44336; /* Vermelho (warn color) */
+  }
+  
+  /* Ícones de status no campo CEP */
+  mat-form-field mat-icon[matSuffix] {
+      font-size: 1.2em; /* Tamanho do ícone */
+      padding-bottom: 5px; /* Ajuste vertical se necessário */
+      &[color="primary"] { // Específico para o check
+          color: #3f51b5; // Cor primária padrão do Angular Material
+      }
+       &[color="warn"] { // Específico para o erro
+          color: #f44336; // Cor warn padrão do Angular Material
+      }
+  }
+  // Se usar ícone de loading padrão do material
+  mat-form-field mat-icon[matSuffix] {
+      &.mat-icon.material-icons { // Para ícones como 'hourglass_empty'
+          // Estilos específicos se necessário
+      }
+  }
+  
+  
+  /* Estilos para indicador de loading geral */
+  .loading-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0;
+  
+    p {
+      margin-top: 0.5em;
+      font-size: 0.9em;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+  
+  
+  mat-card-actions {
+    padding: 8px 16px 16px 16px; /* Ajustar padding das ações */
+    button {
+      margin-left: 8px; /* Espaço entre botões */
+      display: inline-flex; /* Para alinhar ícone e texto */
+      align-items: center;
+      mat-icon {
+          margin-right: 5px; /* Espaço entre ícone e texto */
+      }
+    }
+  }

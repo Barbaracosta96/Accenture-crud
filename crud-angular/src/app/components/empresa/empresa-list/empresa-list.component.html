@@ -1,0 +1,67 @@
+<mat-card>
+  <mat-toolbar color="primary">
+    <span>Cadastro de Empresas</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-raised-button color="accent" (click)="onAdd()">
+      <mat-icon>add</mat-icon> Nova Empresa
+    </button>
+  </mat-toolbar>
+
+  <div class="content-container">
+    <!-- Indicador de Carregamento -->
+    <div *ngIf="!(empresas$ | async); else tableContent" class="loading-spinner">
+      <mat-spinner></mat-spinner>
+      <p>Carregando empresas...</p>
+    </div>
+
+    <!-- Tabela de Empresas -->
+    <ng-template #tableContent>
+      <div *ngIf="(empresas$ | async) as empresas; else noData">
+        <table mat-table [dataSource]="empresas" class="mat-elevation-z8" *ngIf="empresas.length > 0; else noData">
+
+          <!-- Coluna Nome Fantasia -->
+          <ng-container matColumnDef="nomeFantasia">
+            <th mat-header-cell *matHeaderCellDef> Nome Fantasia </th>
+            <td mat-cell *matCellDef="let empresa"> {{ empresa.nomeFantasia }} </td>
+          </ng-container>
+
+          <!-- Coluna CNPJ -->
+          <ng-container matColumnDef="cnpj">
+            <th mat-header-cell *matHeaderCellDef> CNPJ </th>
+            <td mat-cell *matCellDef="let empresa"> {{ empresa.cnpj }} </td> <!-- Adicionar Pipe para formatar CNPJ -->
+          </ng-container>
+
+          <!-- Coluna CEP -->
+          <ng-container matColumnDef="cep">
+            <th mat-header-cell *matHeaderCellDef> CEP </th>
+            <td mat-cell *matCellDef="let empresa"> {{ empresa.cep }} </td> <!-- Adicionar Pipe para formatar CEP -->
+          </ng-container>
+
+          <!-- Coluna Ações -->
+          <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef class="action-column-header"> Ações </th>
+            <td mat-cell *matCellDef="let empresa" class="action-column">
+              <button mat-icon-button color="primary" aria-label="Editar Empresa" (click)="onEdit(empresa)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" aria-label="Remover Empresa" (click)="onDelete(empresa)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      </div>
+    </ng-template>
+
+     <!-- Mensagem caso não hajam dados -->
+     <ng-template #noData>
+        <div class="no-data-message">
+            Nenhuma empresa encontrada.
+        </div>
+     </ng-template>
+
+  </div>
+</mat-card>

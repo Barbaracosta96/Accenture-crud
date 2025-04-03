@@ -1,0 +1,92 @@
+/* Estilos gerais (semelhantes ao empresa-list) */
+mat-card {
+    max-width: 95%; /* Aumentar largura para caber mais colunas */
+    margin: 2em auto;
+    text-align: center;
+    padding: 0;
+  }
+  
+  mat-toolbar {
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .content-container {
+      padding: 16px;
+  }
+  
+  /* Estilos para filtros */
+  .filter-form {
+      display: flex;
+      gap: 15px; /* Espaço entre os campos de filtro */
+      margin-bottom: 1.5em;
+      align-items: center; // Alinha verticalmente os itens
+      flex-wrap: wrap; // Permite que os filtros quebrem linha em telas menores
+  }
+  
+  .filter-field {
+      flex: 1 1 250px; /* Permite que os campos cresçam, base 250px */
+      min-width: 200px; // Largura mínima
+  }
+  
+  .filter-form button { // Estilo para o botão limpar
+      margin-left: 10px;
+  }
+  
+  
+  /* Estilos para o spinner */
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    min-height: 200px;
+  
+    p {
+      margin-top: 1em;
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+  
+  /* Estilos para a tabela e container */
+  .table-container {
+      overflow-x: auto; // Adiciona scroll horizontal se necessário
+  }
+  
+  .mat-elevation-z8 { // Aplica sombra
+    width: 100%;
+    margin-top: 1em;
+  }
+  
+  .action-column {
+    flex: 0 0 125px;
+    text-align: center;
+  }
+  
+  .action-column-header {
+      flex: 0 0 125px;
+      text-align: center;
+  }
+  
+  th.mat-header-cell, td.mat-cell {
+      padding-left: 8px;
+      padding-right: 8px;
+      white-space: nowrap; // Evita quebra de linha nas células
+  }
+  
+  /* Mensagem de "sem dados" */
+  .mat-row .mat-cell.mat-no-data-row {
+      text-align: center;
+      font-style: italic;
+      color: rgba(0, 0, 0, 0.6);
+      padding: 1em;
+  }
+  
+  /* Ajustes no Paginator */
+  mat-paginator {
+      margin-top: 1px; // Pequeno ajuste para separar da tabela
+  }

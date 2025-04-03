@@ -1,0 +1,73 @@
+/* Estilos gerais (semelhantes aos outros forms) */
+mat-card {
+    max-width: 700px; /* Um pouco maior para os campos extras */
+    margin: 2em auto;
+    padding: 0;
+  }
+  
+  mat-toolbar {
+    border-radius: 4px 4px 0 0;
+  }
+  
+  .toolbar-spacer {
+    flex: 1 1 auto;
+  }
+  
+  mat-card-content {
+    padding: 16px;
+  }
+  
+  .fornecedor-form {
+    display: grid; /* Usar grid para layout mais flexível */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Colunas responsivas */
+    gap: 10px 15px; /* Espaçamento entre linhas e colunas */
+  }
+  
+  .form-field {
+    width: 100%; /* Ocupa a célula do grid */
+  }
+  
+  /* Estilos específicos para hints e ícones do CEP (iguais ao EmpresaForm) */
+  .cep-success { color: #4CAF50; }
+  .cep-error { color: #f44336; }
+  mat-form-field mat-icon[matSuffix] { font-size: 1.2em; padding-bottom: 5px; }
+  mat-form-field mat-icon[matSuffix][color="primary"] { color: #3f51b5; }
+  mat-form-field mat-icon[matSuffix][color="warn"] { color: #f44336; }
+  
+  /* Aviso da regra do Paraná */
+  mat-form-field mat-hint[color="accent"] {
+      color: orange; // Ou outra cor de aviso
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.85em;
+      mat-icon {
+          font-size: 1.1em;
+          height: auto;
+          width: auto;
+      }
+  }
+  
+  
+  /* Indicador de Loading Geral */
+  .loading-indicator {
+    grid-column: 1 / -1; /* Ocupa todas as colunas do grid */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0;
+  
+    p { margin-top: 0.5em; font-size: 0.9em; color: rgba(0, 0, 0, 0.6); }
+  }
+  
+  /* Ações do Card */
+  mat-card-actions {
+    padding: 8px 16px 16px 16px;
+    button {
+      margin-left: 8px;
+      display: inline-flex;
+      align-items: center;
+      mat-icon { margin-right: 5px; }
+    }
+  }

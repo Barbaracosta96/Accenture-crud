@@ -1,8 +1,20 @@
 export interface Fornecedor {
-  cnpjCpf: string;
+  id: number; 
+  tipoPessoa: 'PF' | 'PJ'; 
+  cnpjCpf: string; 
   nome: string;
-  email: string;
+  email?: string;
   cep: string;
-  rg?: string; // Optional for individuals
-  dataNascimento?: Date; // Optional for individuals
+  rg?: string; 
+  dataNascimento?: Date | string; 
+  empresaIds?: number[];
+}
+
+export interface EnderecoCep {
+  cep: string;
+  uf: string; 
+  cidade: string;
+  bairro: string;
+  logradouro: string;
+  
 }
