@@ -1,0 +1,33 @@
+{
+  "name": "accenture-crud",
+  "version": "1.0.0",
+  "description": "Aplicação CRUD simples para o projeto Accenture.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Barbaracosta96/Accenture-crud.git"
+  },
+  "keywords": [
+    "crud",
+    "api",
+    "node",
+    "express"
+  ],
+  "author": "Barbara Costa <seu_email@exemplo.com>",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Barbaracosta96/Accenture-crud/issues"
+  },
+  "homepage": "https://github.com/Barbaracosta96/Accenture-crud#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
