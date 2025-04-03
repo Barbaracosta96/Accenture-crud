@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "curso-angular-barbara": {
+      "hosting": {
+        "requests-http": [
+          "curso-angular-barbara"
+        ]
+      }
+    }
+  }
+}
